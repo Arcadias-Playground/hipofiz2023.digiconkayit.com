@@ -1,0 +1,71 @@
+﻿legend {
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+.LoadingIcon {
+    width: 47px;
+    display: none;
+}
+
+.KuTechTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+    .KuTechTable > tbody > tr > td:nth-child(3n+1) {
+        color: red;
+        width: 10px;
+        text-align: end;
+    }
+
+    .KuTechTable > tbody > tr > td:nth-child(3n+2) {
+        width: 150px;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #d12938;
+        color: white;
+        text-align: center;
+    }
+
+
+.table-row {
+    width: 100%;
+}
+
+    .table-row td:nth-child(2) {
+        width: 15%;
+    }
+
+    .table-row td:nth-child(3) {
+        width: 85%;
+    }
+
+.baslik {
+    font-weight: bold;
+    color: #cf1731;
+    text-align: center !important;
+    border-bottom: 1px solid;
+}
+
+.pb-2, .py-2 {
+    padding-bottom: .5rem !important;
+}
+
+.pt-2, .py-2 {
+    padding-top: .5rem !important;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.h4, h4 {
+    font-size: 1.5rem;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
