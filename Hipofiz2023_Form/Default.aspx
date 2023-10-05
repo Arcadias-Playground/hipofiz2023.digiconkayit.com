@@ -122,7 +122,6 @@
                                 <td>Konuşmacı Mısınız ?</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_KonusmaciDurum" runat="server" CssClass="form-control">
-                                        <asp:ListItem Value="">Seçiniz</asp:ListItem>
                                         <asp:ListItem Value="true">Evet</asp:ListItem>
                                         <asp:ListItem Value="false">Hayır</asp:ListItem>
                                     </asp:DropDownList>
@@ -132,8 +131,7 @@
                                 <td>*</td>
                                 <td>Bildiriniz Var Mı ?</td>
                                 <td>
-                                    <asp:DropDownList ID="ddl_BildiriDurum" runat="server" CssClass="form-control"  OnSelectedIndexChanged="ddl_BildiriDurum_SelectedIndexChanged" AutoPostBack="true">
-                                        <asp:ListItem Value="">Seçiniz</asp:ListItem>
+                                    <asp:DropDownList ID="ddl_BildiriDurum" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_BildiriDurum_SelectedIndexChanged" AutoPostBack="true">
                                         <asp:ListItem Value="true">Evet</asp:ListItem>
                                         <asp:ListItem Value="false">Hayır</asp:ListItem>
                                     </asp:DropDownList>
@@ -147,9 +145,12 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class="text-center mt-3">
-                            <asp:Button runat="server" Text="Kayıt Oluştur" CssClass="btn btn-primary" />
-                        </div>
+                        <p align="center">
+                            <asp:LinkButton ID="lnkbtnKayitOl" runat="server" CssClass="btn btn-success" OnClick="lnkbtnKayitOl_Click" OnClientClick="$(this).css('display', 'none'); $('.LoadingIcon').css('display', 'inline-block');">
+                        <i class="fa fa-check"></i>&nbsp;Kayıt Oluştur
+                            </asp:LinkButton>
+                            <asp:Image ID="ImgLoding" runat="server" ImageUrl="~/Gorseller/loadspinner.gif" CssClass="LoadingIcon" />
+                        </p>
                     </ContentTemplate>
                 </asp:UpdatePanel>
 
