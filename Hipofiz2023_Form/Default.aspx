@@ -12,6 +12,7 @@
 
     <script type="text/javascript" src="<%= ResolveClientUrl("~/js/jquery-3.7.1.min.js") %>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/js/bootstrap.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/js/jquery.inputmask.min.js") %>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/js/KuTechJS.js") %>"></script>
 </head>
 <body>
@@ -30,14 +31,14 @@
                                 <td>*</td>
                                 <td>Ad</td>
                                 <td>
-                                    <asp:TextBox ID="txtAd" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtAd" runat="server" class="form-control" onchange="toUpper(this);" onkeyup="toUpper(this);"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="table-row">
                                 <td>*</td>
                                 <td>Soyad</td>
                                 <td>
-                                    <asp:TextBox ID="txtSoyad" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtSoyad" runat="server" class="form-control" onchange="toUpper(this);" onkeyup="toUpper(this);"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="table-row">
@@ -145,18 +146,18 @@
                                 </td>
                             </tr>
                         </table>
+                        <p class="text-center">
+                            <asp:CheckBox ID="chkKVKK" runat="server" Checked="false" />
+                            <asp:HyperLink ID="hyplnkKVKK" runat="server" Target="_blank" NavigateUrl="~/Dosyalar/KVKK.pdf">KVKK okudum ve kabul ediyorum.</asp:HyperLink>
+                        </p>
                         <p align="center">
                             <asp:LinkButton ID="lnkbtnKayitOl" runat="server" CssClass="btn btn-success" OnClick="lnkbtnKayitOl_Click" OnClientClick="$(this).css('display', 'none'); $('.LoadingIcon').css('display', 'inline-block');">
-                        <i class="fa fa-check"></i>&nbsp;Kayıt Oluştur
+                                Kayıt Oluştur
                             </asp:LinkButton>
-                            <asp:Image ID="ImgLoding" runat="server" ImageUrl="~Gorseller/loadspinner.gif" CssClass="LoadingIcon" />
+                            <asp:Image ID="ImgLoding" runat="server" ImageUrl="~/Gorseller/loadspinner.gif" CssClass="LoadingIcon" />
                         </p>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:SqlDataSource runat="server" ID="OleDbUlke" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [UlkeTablosu] ORDER BY [GrupNo], [Ulke]"></asp:SqlDataSource>
-                <asp:SqlDataSource runat="server" ID="OleDbKatilimciTipiListesi" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT [KatilimciTipiID], [KatilimciTipi] &' - '& IIF(NOW() < #10/18/2023 20:59:59#, [ErkenUcret], [NormalUcret]) & ' €' AS [KatilimciTipiWF] FROM [KatilimciTipiTablosu]"></asp:SqlDataSource>
-                <asp:SqlDataSource runat="server" ID="OleDbOdemeTipiListesi" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT [OdemeTipiID], [OdemeTipi] FROM [OdemeTipiTablosu]"></asp:SqlDataSource>
-
             </div>
         </div>
     </form>
@@ -169,7 +170,7 @@
                 <div class="modal-body" id="UyariIcerik">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btn_UyariKapat"><i class="fa fa-times"></i>&nbsp;Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn_UyariKapat">Kapat</button>
                 </div>
             </div>
         </div>
@@ -189,5 +190,13 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function pageLoad(sender, args) {
+            $('#<%= txtTCNo.ClientID%>').inputmask('99999999999', { onincomplete: () => { $('#<%= txtTCNo.ClientID%>').val(''); } });
+            $('#<%= txtDogumTarihi.ClientID%>').inputmask('99.99.9999', { onincomplete: () => { $('#<%= txtDogumTarihi.ClientID%>').val(''); } });
+            $('#<%= txtTelefon.ClientID%>').inputmask('(999) 999 99 99', { onincomplete: () => { $('#<%= txtTelefon.ClientID%>').val(''); } });
+        }
+    </script>
 </body>
 </html>

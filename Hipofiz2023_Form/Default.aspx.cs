@@ -59,6 +59,7 @@ namespace Hipofiz2023_Form
                 KonusmaciDurum = Kontrol.BoolKontrol(ddl_KonusmaciDurum.SelectedValue, "Konuşmacı olup olmadığınızı seçmediniz!", "", ref Uyarilar),
                 BildiriDurum = Kontrol.BoolKontrol(ddl_BildiriDurum.SelectedValue, "Bildirinizin olup olmadığını seçmediniz!", ref Uyarilar),
                 BildiriNo = string.Empty,
+                KVKKOnay = chkKVKK.Checked,
                 GuncellenmeTarihi = Kontrol.Simdi(),
                 EklenmeTarihi = Kontrol.Simdi(),
 
@@ -86,6 +87,10 @@ namespace Hipofiz2023_Form
                             if (SModel.Sonuc.Equals(Sonuclar.Basarili))
                             {
                                 trn.Commit();
+                                new MailGonderimIslemleri().MailGonder(KModel);
+
+                                BilgiKontrolMerkezi.UyariEkrani(this, $"UyariBilgilendirme('', '<div class=\"text-center\"><p>Kaydınız alınmıştır.</p><p><a href=\"\" class=\"btn btn-warning\">Siteye dönmek için tıklayın.</a></p></div>', true); ('.modal-footer').remove();", false);
+
                             }
                             else
                             {

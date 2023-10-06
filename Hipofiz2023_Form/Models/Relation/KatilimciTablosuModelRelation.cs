@@ -8,7 +8,8 @@ namespace ModelRelation
 {
 	public abstract class KatilimciTablosuModelRelation : KatilimciTablosuModelBase
 	{
-		public virtual string JsonModel()
+
+		public virtual string RelationJsonModel()
 		{
 			return JsonConvert.SerializeObject(this);
 		}
