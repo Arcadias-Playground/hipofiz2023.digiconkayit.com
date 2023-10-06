@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistationSuccessful.aspx.cs" Inherits="Hipofiz2023_Form.RegistationSuccessful" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistationSuccessful.aspx.cs" Inherits="Hipofiz2023_Form.RegistationSuccessful" %>
 
 <!DOCTYPE html>
 

@@ -6,26 +6,32 @@ using VeritabaniIslemMerkeziBase;
 
 namespace VeritabaniIslemMerkezi
 {
-	public partial class KatilimciTablosuIslemler : KatilimciTablosuIslemlerBase
-	{
-		public KatilimciTablosuIslemler() : base() { }
+    public partial class KatilimciTablosuIslemler : KatilimciTablosuIslemlerBase
+    {
+        public KatilimciTablosuIslemler() : base() { }
 
-		public KatilimciTablosuIslemler(OleDbTransaction tran) : base (tran) { }
+        public KatilimciTablosuIslemler(OleDbTransaction tran) : base(tran) { }
+    }
+    //public partial class KatilimciTablosuIslemler : KatilimciTablosuIslemlerBase
+    //{
+    //	public KatilimciTablosuIslemler() : base() { }
 
-		public string YeniKatilimciID()
-        {
-			string KatilimciID;
-			do
-			{
-				KatilimciID = Guid.NewGuid().ToString();
-				VTIslem.SetCommandText("SELECT COUNT(*) FROM KatilimciTablosu WHERE KatilimciID = @KatilimciID");
-				VTIslem.AddWithValue("KatilimciID", KatilimciID);
-			} while (!Convert.ToInt32(VTIslem.ExecuteScalar()).Equals(0));
+    //	public KatilimciTablosuIslemler(OleDbTransaction tran) : base (tran) { }
 
-			return KatilimciID;
+    //	public string YeniKatilimciID()
+    //       {
+    //		string KatilimciID;
+    //		do
+    //		{
+    //			KatilimciID = Guid.NewGuid().ToString();
+    //			VTIslem.SetCommandText("SELECT COUNT(*) FROM KatilimciTablosu WHERE KatilimciID = @KatilimciID");
+    //			VTIslem.AddWithValue("KatilimciID", KatilimciID);
+    //		} while (!Convert.ToInt32(VTIslem.ExecuteScalar()).Equals(0));
 
-        }
+    //		return KatilimciID;
+
+    //       }
 
 
-	}
+    //}
 }

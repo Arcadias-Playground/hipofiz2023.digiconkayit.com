@@ -5,7 +5,8 @@
 	Kume.selectionEnd = index;
 }
 
-function UyariBilgilendirme(Baslik, Icerik, Sonuc) {
+function 
+(Baslik, Icerik, Sonuc) {
 	$(() => {
 		if (Sonuc === undefined) {
 			$('#UyariHead').css('background-color', 'transparent');

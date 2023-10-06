@@ -78,15 +78,6 @@ namespace Hipofiz2023_Form
         protected global::System.Web.UI.WebControls.TextBox txtSicilNo;
 
         /// <summary>
-        /// txtBranş control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBranş;
-
-        /// <summary>
         /// txtMeslek control.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,15 @@ namespace Hipofiz2023_Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMeslek;
+
+        /// <summary>
+        /// txtBranş control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBranş;
 
         /// <summary>
         /// txtUnvan control.
@@ -211,5 +211,32 @@ namespace Hipofiz2023_Form
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImgLoding;
+
+        /// <summary>
+        /// OleDbUlke control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource OleDbUlke;
+
+        /// <summary>
+        /// OleDbKatilimciTipiListesi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource OleDbKatilimciTipiListesi;
+
+        /// <summary>
+        /// OleDbOdemeTipiListesi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource OleDbOdemeTipiListesi;
     }
 }

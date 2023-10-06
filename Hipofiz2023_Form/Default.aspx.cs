@@ -43,31 +43,30 @@ namespace Hipofiz2023_Form
         {
             KModel = new KatilimciTablosuModel
             {
-                Ad = Kontrol.KelimeKontrol(txtAd, "Adınız boş bırakılamaz.", ref Uyarilar),
-                Soyad = Kontrol.KelimeKontrol(txtSoyad, "Soyadınız boş bırakılamaz.", ref Uyarilar),
-                TCNo = Kontrol.KelimeKontrol(txtTCNo, "Tc No boş bırakılamaz.", ref Uyarilar),
-                SicilNo = Kontrol.KelimeKontrol(txtSicilNo, "Sicil numaranız boş bırakılamaz.", ref Uyarilar),
-                Branş = Kontrol.KelimeKontrol(txtBranş, "Branşınız boş bırakılamaz.", ref Uyarilar),
-                Meslek = Kontrol.KelimeKontrol(txtMeslek, "Meslek boş bırakılamaz.", ref Uyarilar),
-                Unvan = Kontrol.KelimeKontrol(txtUnvan, "Unvan boş bırakılamaz.", ref Uyarilar),
-                Hastane = Kontrol.KelimeKontrol(txtHastane, "Hastane boş bırakılamaz.", ref Uyarilar),
-                Sehir = Kontrol.KelimeKontrol(txtSehir, "İl boş bırakılamaz.", ref Uyarilar),
-                Ilce = Kontrol.KelimeKontrol(txtIlce, "İlçe boş bırakılamaz.", ref Uyarilar),
-                Telefon = Kontrol.KelimeKontrol(txtTelefon, "Telephone cannot be empty", ref Uyarilar),
-                ePosta = Kontrol.ePostaKontrol(txtePosta, "E mail boş bırakılamaz", "Geçersiz e posta girildi.", ref Uyarilar),
-                DogumTarihi = Kontrol.TariheKontrol(txtDogumTarihi, "Doğum tarihi boş bırakılamaz.", "Geçersiz tarih girdiniz.", ref Uyarilar),
+                Ad = Kontrol.KelimeKontrol(txtAd, "Adınız boş bırakılamaz!", ref Uyarilar),
+                Soyad = Kontrol.KelimeKontrol(txtSoyad, "Soyadınız boş bırakılamaz!", ref Uyarilar),
+                TCNo = Kontrol.KelimeKontrol(txtTCNo, "Tc No boş bırakılamaz!", ref Uyarilar),
+                ePosta = Kontrol.ePostaKontrol(txtePosta, "E mail boş bırakılamaz", "Geçersiz e posta girildi!", ref Uyarilar),
+                SicilNo = Kontrol.KelimeKontrol(txtSicilNo, "Sicil numaranız boş bırakılamaz!", ref Uyarilar),
+                Branş = Kontrol.KelimeKontrol(txtBranş, "Branşınız boş bırakılamaz!", ref Uyarilar),
+                Meslek = Kontrol.KelimeKontrol(txtMeslek, "Meslek boş bırakılamaz!", ref Uyarilar),
+                Unvan = Kontrol.KelimeKontrol(txtUnvan, "Unvan boş bırakılamaz!", ref Uyarilar),
+                Hastane = Kontrol.KelimeKontrol(txtHastane, "Hastane boş bırakılamaz!", ref Uyarilar),
+                İlçe = Kontrol.KelimeKontrol(txtIlce, "İlçe boş bırakılamaz!", ref Uyarilar),
+                Sehir = Kontrol.KelimeKontrol(txtSehir, "İl boş bırakılamaz!", ref Uyarilar),
+                Telefon = Kontrol.KelimeKontrol(txtTelefon, "Telefon numarası girmelisiniz!", ref Uyarilar),
+                DogumTarihi = Kontrol.TariheKontrol(txtDogumTarihi, "Doğum tarihi boş bırakılamaz!", "Geçersiz tarih girdiniz!", ref Uyarilar),
                 KonusmaciDurum = Kontrol.BoolKontrol(ddl_KonusmaciDurum.SelectedValue, "Konuşmacı olup olmadığınızı seçmediniz!", "", ref Uyarilar),
                 BildiriDurum = Kontrol.BoolKontrol(ddl_BildiriDurum.SelectedValue, "Bildirinizin olup olmadığını seçmediniz!", ref Uyarilar),
-
                 BildiriNo = string.Empty,
                 GuncellenmeTarihi = Kontrol.Simdi(),
                 EklenmeTarihi = Kontrol.Simdi(),
 
             };
             if (string.IsNullOrEmpty(ddl_BildiriDurum.SelectedValue))
-                Uyarilar.Append("<p>Please select status of accepted paper</p>");
+                Uyarilar.Append("<p>Lütfen bildrinizin olup olmadığını seçiniz!</p>");
             else if (Convert.ToBoolean(ddl_BildiriDurum.SelectedValue))
-                KModel.BildiriNo = Kontrol.KelimeKontrol(txtBildiriNo, "Paper number cannot be empty", ref Uyarilar);
+                KModel.BildiriNo = Kontrol.KelimeKontrol(txtBildiriNo, "Bildiri Numarası Boş Olamaz!", ref Uyarilar);
 
 
             if (string.IsNullOrEmpty(Uyarilar.ToString()))

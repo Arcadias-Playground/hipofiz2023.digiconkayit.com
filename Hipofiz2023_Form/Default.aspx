@@ -56,16 +56,16 @@
                             </tr>
                             <tr class="table-row">
                                 <td>*</td>
-                                <td>Branş</td>
+                                <td>Meslek</td>
                                 <td>
-                                    <asp:TextBox ID="txtBranş" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtMeslek" runat="server" class="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="table-row">
                                 <td>*</td>
-                                <td>Meslek</td>
+                                <td>Branş</td>
                                 <td>
-                                    <asp:TextBox ID="txtMeslek" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtBranş" runat="server" class="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="table-row">
@@ -149,14 +149,31 @@
                             <asp:LinkButton ID="lnkbtnKayitOl" runat="server" CssClass="btn btn-success" OnClick="lnkbtnKayitOl_Click" OnClientClick="$(this).css('display', 'none'); $('.LoadingIcon').css('display', 'inline-block');">
                         <i class="fa fa-check"></i>&nbsp;Kayıt Oluştur
                             </asp:LinkButton>
-                            <asp:Image ID="ImgLoding" runat="server" ImageUrl="~/Gorseller/loadspinner.gif" CssClass="LoadingIcon" />
+                            <asp:Image ID="ImgLoding" runat="server" ImageUrl="~Gorseller/loadspinner.gif" CssClass="LoadingIcon" />
                         </p>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                <asp:SqlDataSource runat="server" ID="OleDbUlke" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT * FROM [UlkeTablosu] ORDER BY [GrupNo], [Ulke]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="OleDbKatilimciTipiListesi" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT [KatilimciTipiID], [KatilimciTipi] &' - '& IIF(NOW() < #10/18/2023 20:59:59#, [ErkenUcret], [NormalUcret]) & ' €' AS [KatilimciTipiWF] FROM [KatilimciTipiTablosu]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="OleDbOdemeTipiListesi" ConnectionString='<%$ ConnectionStrings:OleDbConnectionString %>' ProviderName='<%$ ConnectionStrings:OleDbConnectionString.ProviderName %>' SelectCommand="SELECT [OdemeTipiID], [OdemeTipi] FROM [OdemeTipiTablosu]"></asp:SqlDataSource>
 
             </div>
         </div>
     </form>
+    <div id="Uyari" class="modal" tabindex="-1" role="dialog" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="UyariHead">
+                    <h5 class="modal-title" id="UyariBaslik"></h5>
+                </div>
+                <div class="modal-body" id="UyariIcerik">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btn_UyariKapat"><i class="fa fa-times"></i>&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="bg-dark p-3">
         <div class="container">
             <div class="d-flex aling-items-center justify-content-center">

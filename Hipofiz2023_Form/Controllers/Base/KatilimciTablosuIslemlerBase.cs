@@ -30,8 +30,7 @@ namespace VeritabaniIslemMerkeziBase
 
         public virtual SurecBilgiModel YeniKayitEkle(KatilimciTablosuModel YeniKayit)
         {
-            VTIslem.SetCommandText("INSERT INTO KatilimciTablosu (KatilimciID, Ad, Soyad, TCNo, ePosta, Telefon, SicilNo, Branş, Meslek, Unvan, Hastane, Ilce, Sehir, KonusmaciDurum, DogumTarihi , BildiriNo , BildiriDurum , GuncellenmeTarihi ,EklenmeTarihi ) VALUES (@KatilimciID, @Ad, @Soyad, @TCNo, @ePosta, @Telefon, @SicilNo, @Branş, @Meslek, @Unvan, @Hastane, @Ilce, @Sehir, @KonusmaciDurum, @DogumTarihi , @BildiriNo , @BildiriDurum , @GuncellenmeTarihi , @EklenmeTarihi )");
-            VTIslem.AddWithValue("KatilimciID", YeniKayit.KatilimciID);
+            VTIslem.SetCommandText("INSERT INTO KatilimciTablosu (Ad, Soyad, TCNo, ePosta, Telefon, SicilNo, Branş, Meslek, Unvan, Hastane, İlçe, Sehir, KonusmaciDurum, DogumTarihi , BildiriNo , BildiriDurum , GuncellenmeTarihi ,EklenmeTarihi ) VALUES (@Ad, @Soyad, @TCNo, @ePosta, @Telefon, @SicilNo, @Branş, @Meslek, @Unvan, @Hastane, @İlçe, @Sehir, @KonusmaciDurum, @DogumTarihi , @BildiriNo , @BildiriDurum , @GuncellenmeTarihi , @EklenmeTarihi )");
             VTIslem.AddWithValue("Ad", YeniKayit.Ad);
             VTIslem.AddWithValue("Soyad", YeniKayit.Soyad);
             VTIslem.AddWithValue("TCNo", YeniKayit.TCNo);
@@ -42,7 +41,7 @@ namespace VeritabaniIslemMerkeziBase
             VTIslem.AddWithValue("Meslek", YeniKayit.Meslek);
             VTIslem.AddWithValue("Unvan", YeniKayit.Unvan);
             VTIslem.AddWithValue("Hastane", YeniKayit.Hastane);
-            VTIslem.AddWithValue("Ilce", YeniKayit.Ilce);
+            VTIslem.AddWithValue("İlçe", YeniKayit.İlçe);
             VTIslem.AddWithValue("Sehir", YeniKayit.Sehir);
             VTIslem.AddWithValue("KonusmaciDurum", YeniKayit.KonusmaciDurum);
             VTIslem.AddWithValue("DogumTarihi", YeniKayit.DogumTarihi);
@@ -52,6 +51,11 @@ namespace VeritabaniIslemMerkeziBase
             VTIslem.AddWithValue("EklenmeTarihi", YeniKayit.EklenmeTarihi);
             return VTIslem.ExecuteNonQuery();
         }
+
+
+
+
+
     }
 }
 

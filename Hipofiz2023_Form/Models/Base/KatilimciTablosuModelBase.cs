@@ -69,7 +69,7 @@ namespace ModelBase
         [Required(ErrorMessage = "BosUyari")]
         [MaxLength(255, ErrorMessage = "UzunlukUyari")]
         [Column("Ilce")]
-        public virtual string Ilce { get; set; }
+        public virtual string Ýlçe { get; set; }
 
         [Required(ErrorMessage = "BosUyari")]
         [MaxLength(255, ErrorMessage = "UzunlukUyari")]
