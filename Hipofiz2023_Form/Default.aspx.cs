@@ -33,12 +33,6 @@ namespace Hipofiz2023_Form
             }
         }
 
-        protected void ddl_BildiriDurum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tr_BildiriNo.Visible = string.IsNullOrEmpty(ddl_BildiriDurum.SelectedValue) ? false : Convert.ToBoolean(ddl_BildiriDurum.SelectedValue);
-            Kontrol.Temizle(txtBildiriNo);
-        }
-
         protected void lnkbtnKayitOl_Click(object sender, EventArgs e)
         {
             KModel = new KatilimciTablosuModel
@@ -64,14 +58,10 @@ namespace Hipofiz2023_Form
                 EklenmeTarihi = Kontrol.Simdi(),
 
             };
-            if (string.IsNullOrEmpty(ddl_BildiriDurum.SelectedValue))
-                Uyarilar.Append("<p>Lütfen bildrinizin olup olmadığını seçiniz!</p>");
-            else if (Convert.ToBoolean(ddl_BildiriDurum.SelectedValue))
-                KModel.BildiriNo = Kontrol.KelimeKontrol(txtBildiriNo, "Bildiri Numarası Boş Olamaz!", ref Uyarilar);
-
 
             if (string.IsNullOrEmpty(Uyarilar.ToString()))
             {
+                KModel.BildiriNo = KModel.BildiriDurum ? "Bildirim var" : "Bildiri yok";
                 using (OleDbConnection cnn = ConnectionBuilder.DefaultConnection())
                 {
                     ConnectionBuilder.OpenConnection(cnn);

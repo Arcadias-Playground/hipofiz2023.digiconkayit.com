@@ -132,17 +132,10 @@
                                 <td>*</td>
                                 <td>Bildiriniz Var Mı ?</td>
                                 <td>
-                                    <asp:DropDownList ID="ddl_BildiriDurum" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddl_BildiriDurum_SelectedIndexChanged" AutoPostBack="true">
+                                    <asp:DropDownList ID="ddl_BildiriDurum" runat="server" CssClass="form-control" AutoPostBack="true">
                                         <asp:ListItem Value="true">Evet</asp:ListItem>
                                         <asp:ListItem Value="false">Hayır</asp:ListItem>
                                     </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr class="table-row" id="tr_BildiriNo" runat="server" visible="false">
-                                <td>*</td>
-                                <td>Bildiri Numaranız:</td>
-                                <td>
-                                    <asp:TextBox ID="txtBildiriNo" runat="server" class="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

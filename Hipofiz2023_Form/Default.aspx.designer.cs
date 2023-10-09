@@ -177,24 +177,6 @@ namespace Hipofiz2023_Form
         protected global::System.Web.UI.WebControls.DropDownList ddl_BildiriDurum;
 
         /// <summary>
-        /// tr_BildiriNo denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_BildiriNo;
-
-        /// <summary>
-        /// txtBildiriNo denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBildiriNo;
-
-        /// <summary>
         /// chkKVKK denetimi.
         /// </summary>
         /// <remarks>
